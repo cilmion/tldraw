@@ -111,10 +111,6 @@ export class Pointing extends StateNode {
 		})
 
 		if (change) {
-			const startTerminal = change.props?.start
-			if (startTerminal?.type === 'binding') {
-				this.editor.setHintingShapes([startTerminal.boundShapeId])
-			}
 			this.editor.updateShapes([change], { squashing: true })
 		}
 

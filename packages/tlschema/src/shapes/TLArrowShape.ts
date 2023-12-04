@@ -1,13 +1,12 @@
 import { defineMigrations } from '@tldraw/store'
 import { T } from '@tldraw/validate'
-import { vec2dModelValidator } from '../misc/geometry-types'
 import { StyleProp } from '../styles/StyleProp'
 import { DefaultColorStyle, DefaultLabelColorStyle } from '../styles/TLColorStyle'
 import { DefaultDashStyle } from '../styles/TLDashStyle'
 import { DefaultFillStyle } from '../styles/TLFillStyle'
 import { DefaultFontStyle } from '../styles/TLFontStyle'
 import { DefaultSizeStyle } from '../styles/TLSizeStyle'
-import { ShapePropsType, TLBaseShape, shapeIdValidator } from './TLBaseShape'
+import { ShapePropsType, TLBaseShape } from './TLBaseShape'
 
 const arrowheadTypes = [
 	'arrow',
@@ -37,19 +36,9 @@ export const ArrowShapeArrowheadEndStyle = StyleProp.defineEnum('tldraw:arrowhea
 export type TLArrowShapeArrowheadStyle = T.TypeOf<typeof ArrowShapeArrowheadStartStyle>
 
 /** @public */
-const ArrowShapeTerminal = T.union('type', {
-	binding: T.object({
-		type: T.literal('binding'),
-		boundShapeId: shapeIdValidator,
-		normalizedAnchor: vec2dModelValidator,
-		isExact: T.boolean,
-		isPrecise: T.boolean,
-	}),
-	point: T.object({
-		type: T.literal('point'),
-		x: T.number,
-		y: T.number,
-	}),
+const ArrowShapeTerminal = T.object({
+	x: T.number,
+	y: T.number,
 })
 
 /** @public */
@@ -112,7 +101,7 @@ export const arrowShapeMigrations = defineMigrations({
 					props: {
 						...record.props,
 						start:
-							(start as TLArrowShapeTerminal).type === 'binding'
+							(start as any).type === 'binding'
 								? {
 										...start,
 										isPrecise: !(
@@ -121,7 +110,7 @@ export const arrowShapeMigrations = defineMigrations({
 								  }
 								: start,
 						end:
-							(end as TLArrowShapeTerminal).type === 'binding'
+							(end as any).type === 'binding'
 								? {
 										...end,
 										isPrecise: !(end.normalizedAnchor.x === 0.5 && end.normalizedAnchor.y === 0.5),

@@ -272,7 +272,6 @@ export class DraggingHandle extends StateNode {
 				x: point.x,
 				y: point.y,
 			},
-			isPrecise: this.isPrecise || altKey,
 			initial: initial,
 		})
 
