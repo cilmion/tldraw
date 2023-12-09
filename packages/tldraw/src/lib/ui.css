@@ -12,6 +12,12 @@
 /*                     UI Refresh                     */
 /* -------------------------------------------------- */
 
+/* Toolbar */
+
+.tlui-toolbar__tools {
+	border-radius: 30px !important;
+	padding: 3px;
+}
 /* Button */
 
 .tlui-button {
@@ -34,6 +40,14 @@
 	gap: 0px;
 	color: var(--color-text-1);
 	text-shadow: 1px 1px var(--color-text-shadow);
+}
+
+.tlui-button:hover {
+	border-radius: 50%;
+}
+
+.tlui-button:hover::after {
+	border-radius: 50%;
 }
 
 .tlui-button:disabled {
@@ -154,7 +168,7 @@
 @media (hover: hover) {
 	.tlui-button__icon::after {
 		inset: 4px;
-		border-radius: var(--radius-2);
+		border-radius: var(--radius-2); 
 	}
 
 	.tlui-button__icon[data-state='hinted']:not(:disabled, :focus-visible):hover::after {
@@ -250,6 +264,11 @@
 
 .tlui-button__tool[data-state='selected'] {
 	color: var(--color-selected-contrast);
+	border-radius: 50%;
+}
+
+.tlui-button__tool[data-state='selected']::after {
+	border-radius: 50%;
 }
 
 .tlui-button__tool[data-state='selected']:not(:disabled, :focus-visible):active {

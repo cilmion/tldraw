@@ -201,7 +201,7 @@ export function TLUiMenuSchemaProvider({ overrides, children }: TLUiMenuSchemaPr
 					)
 				)
 			),
-			menuGroup('extras', menuItem(actions['insert-embed']), menuItem(actions['insert-media'])),
+			menuGroup('extras', menuItem(actions['insert-media'])),
 			menuGroup(
 				'preferences',
 				menuSubmenu(
@@ -211,11 +211,11 @@ export function TLUiMenuSchemaProvider({ overrides, children }: TLUiMenuSchemaPr
 						'preferences-actions',
 						menuItem(actions['toggle-snap-mode'], { checked: isSnapMode }),
 						menuItem(actions['toggle-tool-lock'], { checked: isToolLock }),
-						menuItem(actions['toggle-grid'], { checked: isGridMode }),
-						menuItem(actions['toggle-dark-mode'], { checked: isDarkMode }),
-						menuItem(actions['toggle-focus-mode'], { checked: isFocusMode }),
+						menuItem(actions['toggle-grid'], { checked: isGridMode })
+						/*menuItem(actions['toggle-dark-mode'], { checked: isDarkMode }),
+						/*menuItem(actions['toggle-focus-mode'], { checked: isFocusMode }),
 						menuItem(actions['toggle-reduce-motion'], { checked: animationSpeed === 0 }),
-						menuItem(actions['toggle-debug-mode'], { checked: isDebugMode })
+						menuItem(actions['toggle-debug-mode'], { checked: isDebugMode })*/
 					)
 				),
 				isMobile && menuCustom('LANGUAGE_MENU', { readonlyOk: true })

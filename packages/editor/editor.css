@@ -21,6 +21,7 @@
 	--radius-2: 6px;
 	--radius-3: 9px;
 	--radius-4: 13px;
+	--radius-50: 50%;
 	--layer-background: 100;
 	--layer-grid: 150;
 	--layer-canvas: 200;
@@ -115,7 +116,7 @@
 	--color-panel-overlay: rgba(255, 255, 255, 0.82);
 	--color-panel: #fdfdfd;
 	--color-focus: #004094;
-	--color-selected: #2f80ed;
+	--color-selected: #000;
 	--color-selected-contrast: #ffffff;
 	--color-selection-fill: #1e90ff06;
 	--color-selection-stroke: #2f80ed;
@@ -123,7 +124,7 @@
 	--color-text-1: #2d2d2d;
 	--color-text-3: #a4a5a7;
 	--color-text-shadow: #ffffff;
-	--color-primary: #2f80ed;
+	--color-primary: #000;
 	--color-warn: #d10b0b;
 	--color-text: #000000;
 	--color-laser: #ff0000;
